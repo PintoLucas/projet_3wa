@@ -1,0 +1,52 @@
+.gmr__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.gmr__header > div {
+    width: 33%;
+}
+
+.gmr__header :nth-child(3) {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.gmr__logo {
+    width: 30px;
+    height: 30px;
+}
+
+.gmr__header_menu, .gmr__header_account {
+    display: flex;
+    justify-content: center;
+}
+
+.gmr__header_menu i {
+    margin: 0 10px;
+    font-size: 30px;
+}
+
+.gmr__header_menu i:hover {
+    color: #FCFD05;
+}
+
+.gmr__avatar {
+    height: 30px;
+    width: 30px;
+    object-fit: cover;
+}
+
+.gmr__header_account {
+    width: fit-content !important;
+    display: flex;
+    align-items: center;
+    background-color: #222222;
+    border-radius: 15px;
+    padding: 0 20px;
+}
+
+.gmr__header_account > div {
+    margin: 0 10px;
+}
