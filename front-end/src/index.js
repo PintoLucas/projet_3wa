@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import "./styles/Main.css";
+import "./styles/Common.css";
 import Header from './components/Header';
-import Feed from './pages/Feed';
+import Main from './pages/Main';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -11,8 +11,7 @@ root.render(
     <Header />
       <BrowserRouter>
           <Routes>
-              <Route path="/" element={<Feed />}>
-              </Route>
+              <Route path="/" element={<Main />}></Route>
           </Routes>
       </BrowserRouter>
   </React.StrictMode>

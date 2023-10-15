@@ -1,0 +1,34 @@
+@import "~font-awesome/css/font-awesome.min.css";
+
+body {
+    background-color: #1A1A1A;
+    padding: 30px;
+}
+
+.black {
+    color: #1A1A1A;
+}
+
+p, h1, h2, h3, .fa {
+    color: white;
+}
+
+.gmr__bold {
+    font-weight: 600;
+}
+
+.gmr__secondary_text {
+    font-weight: 400;
+    color: #b5b5b5;
+}
+
+.gmr__inline {
+    display: flex;
+    flex-direction: row;
+}
+
+.gmr__center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

@@ -2,6 +2,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: #1A1A1A;
+    position: fixed;
+    width: calc(100% - 136px);
+    z-index: 1000;
+    padding: 0 30px;
 }
 
 .gmr__header > div {
@@ -36,6 +41,8 @@
     height: 30px;
     width: 30px;
     object-fit: cover;
+    background-color: #1A1A1A;
+    border-radius: 10px;
 }
 
 .gmr__header_account {
@@ -43,7 +50,7 @@
     display: flex;
     align-items: center;
     background-color: #222222;
-    border-radius: 15px;
+    border-radius: 10px;
     padding: 0 20px;
 }
 
