@@ -8,7 +8,8 @@
         /* LEFT ASIDE */
 
 .gmr__left_aside {
-    display: flex;
+    display: none;
+    /* display: flex; */
     position: fixed;
     flex-direction: column;
     align-items: center;
@@ -58,9 +59,10 @@
     margin-right: 15px;
 }
 
-.gmr__create_textarea {
+.gmr__post_textarea {
     background-color: #1A1A1A;
     min-width: 400px;
+    width: 100%;
     border: 0;
     border-radius: 10px;
     resize: none;
@@ -126,4 +128,18 @@
 
 .gmr__post_name {
     font-size: 20px;
+}
+
+.gmr__post_answer {
+    margin-top: 15px;
+}
+
+.gmr__post_answer .fa-heart {
+    margin-left: 15px;
+    font-size: 20px;
+}
+
+.gmr__post_answer .fa-heart:hover {
+    color: #FCFD05;
+    cursor: pointer;
 }

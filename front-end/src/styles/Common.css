@@ -32,3 +32,8 @@ p, h1, h2, h3, .fa {
     flex-direction: column;
     align-items: center;
 }
+
+.gmr__align_items {
+    display: flex;
+    align-items: center;
+}

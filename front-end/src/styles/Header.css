@@ -35,6 +35,7 @@
 
 .gmr__header_menu i:hover {
     color: #FCFD05;
+    cursor: pointer;
 }
 
 .gmr__avatar {
@@ -44,6 +45,10 @@
     background-color: #1A1A1A;
     border-radius: 10px;
 }
+
+
+        /* Account Menu */
+
 
 .gmr__header_account {
     width: fit-content !important;
@@ -56,4 +61,29 @@
 
 .gmr__header_account > div {
     margin: 0 10px;
+}
+
+.gmr__dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.gmr__menu {
+    z-index: 999;
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    color: white;
+    background-color: #282828;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.gmr__dropdown:hover .gmr__menu {
+    display: block;
+}
+
+.gmr__menu ul {
+    padding: 5px 20px;
 }

@@ -1,6 +1,7 @@
 import logo from "../../assets/logo.png"
 import avatar from "../../assets/joe.png"
 import "../../styles/Header.css";
+import AccountMenu from "./AccountMenu";
 
 function Header() {
     return (
@@ -20,17 +21,7 @@ function Header() {
             </div>
         </div>
         <div>
-          <div className="gmr__header_account">
-            <div>
-              <img src={avatar} alt="Avatar de Joe Dalton" className="gmr__avatar"/>
-            </div>
-            <div>
-              <p>Lucas Pinto</p>
-            </div>
-            <div>
-              <i class="fa fa-chevron-down"></i>
-            </div>
-          </div>
+          <AccountMenu />
         </div>
       </header>
     );
