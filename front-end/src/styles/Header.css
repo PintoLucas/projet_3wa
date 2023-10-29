@@ -87,3 +87,11 @@
 .gmr__menu ul {
     padding: 5px 20px;
 }
+
+.gmr__menu a {
+    color: white;
+}
+
+.gmr__menu a:hover {
+    color: #FCFD05;
+}

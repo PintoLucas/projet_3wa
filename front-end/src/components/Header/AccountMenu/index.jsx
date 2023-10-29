@@ -1,42 +1,55 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import avatar from "../../../assets/joe.png"
 
-function AccountMenu() {
-  const [isHovered, setIsHovered] = useState(false);
+function AccountMenu({items}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
-  const handleMouseEnter = () => {
-    setIsHovered(true);
+  // Gère la fermeture du menu lorsque l'utilisateur clique en dehors
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsOpen(false);
+    }
   };
 
-  const handleMouseLeave = () => {
-    setIsHovered(false);
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
-    <div
-      className="gmr__dropdown"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
+    <div className="gmr__dropdown" onClick={toggleMenu} ref={dropdownRef}>
       <div className="gmr__header_account">
-            <div>
-              <img src={avatar} alt="Avatar d'utilisateur'" className="gmr__avatar"/>
-            </div>
-            <div>
-              <p>Lucas Pinto</p>
-            </div>
-            <div>
-              <i class="fa fa-chevron-down"></i>
-            </div>
-          </div>
-      {isHovered && (
-        <menu className="gmr__menu">
-          <ul>Mon Compte</ul>
-          <ul>Se déconnecter</ul>
-        </menu>
+        <div>
+          <img src={avatar} alt="Avatar d'utilisateur'" className="gmr__avatar"/>
+        </div>
+        <div>
+          <p>Lucas Pinto</p>
+        </div>
+        <div>
+          <i class="fa fa-chevron-down"></i>
+        </div>
+      </div>
+      {isOpen && (
+        <div>
+          <menu className="gmr__menu">
+            <ul>
+              <a href="/">Mon Compte</a>
+            </ul>
+            <ul>
+              <a href="/">Se déconnecter</a>
+            </ul>
+          </menu>
+        </div>
       )}
     </div>
   );
-}
+};
 
 export default AccountMenu;
