@@ -6,8 +6,9 @@ const postRoutes = require('./routes/post')
 const path = require("path");
 
 const app = express();
+const dotenv = require('dotenv').config();
 
-mongoose.connect('mongodb+srv://aldoferarri:151298@p07-groupomania.m3vpu6q.mongodb.net/?retryWrites=true&w=majority',
+mongoose.connect(process.env.MONGO_URI,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true
