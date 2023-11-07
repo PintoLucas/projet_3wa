@@ -8,8 +8,7 @@
         /* LEFT ASIDE */
 
 .gmr__left_aside {
-    display: none;
-    /* display: flex; */
+    display: flex;
     position: fixed;
     flex-direction: column;
     align-items: center;

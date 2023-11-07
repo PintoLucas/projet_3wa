@@ -2,14 +2,14 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 
-exports.test = (req, res, next) => {
-    res.status(200).json({message: 'Test OK'});
-}
-
 exports.signup = (req, res, next) => {
     bcrypt.hash(req.body.password, 10)
         .then(hash => {
             const user = new User({
+                name: req.body.name,
+                pseudo: req.body.pseudo,
+                biography: req.body.biography,
+                imageUrl: req.body.imageUrl,
                 email: req.body.email,
                 password: hash,
                 isAdmin: false
@@ -26,13 +26,6 @@ exports.signup = (req, res, next) => {
         .catch(error => res.status(500).json({error}));
 };
 
-/* This method is used to test the login in Postman
-{
-    "email": "lucas59960@hotmail.fr",
-    "password": "151298"
-}
-*/
-
 
 exports.login = (req, res, next) => {
     User.findOne({email: req.body.email})
@@ -47,6 +40,11 @@ exports.login = (req, res, next) => {
                     }
                     res.status(200).json({
                         userId: user._id,
+                        name: user.name,
+                        pseudo: user.pseudo,
+                        biography: user.biography,
+                        imageUrl: user.imageUrl,
+                        email: user.email,
                         isAdmin: user.isAdmin,
                         token: jwt.sign(
                             {

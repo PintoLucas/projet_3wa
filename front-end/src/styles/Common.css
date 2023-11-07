@@ -27,6 +27,11 @@ p, h1, h2, h3, .fa {
     flex-direction: row;
 }
 
+.gmr__column {
+    display: flex;
+    flex-direction: column;
+}
+
 .gmr__center {
     display: flex;
     flex-direction: column;
@@ -36,4 +41,13 @@ p, h1, h2, h3, .fa {
 .gmr__align_items {
     display: flex;
     align-items: center;
+}
+
+.gmr__justify_content {
+    display: flex;
+    justify-content: center;
+}
+
+.gmr__text_align {
+    text-align: center;
 }

@@ -1,23 +1,24 @@
 import React, { useState, useRef, useEffect } from 'react';
-import avatar from "../../../assets/joe.png"
 
 function AccountMenu({items}) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const accountInfos = JSON.parse(localStorage.getItem('accountInfos'));
 
-  // Gère la fermeture du menu lorsque l'utilisateur clique en dehors
   const handleClickOutside = (event) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
       setIsOpen(false);
     }
   };
 
+  // Add mousedown to hide menu
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
+
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -26,11 +27,11 @@ function AccountMenu({items}) {
   return (
     <div className="gmr__dropdown" onClick={toggleMenu} ref={dropdownRef}>
       <div className="gmr__header_account">
-        <div>
-          <img src={avatar} alt="Avatar d'utilisateur'" className="gmr__avatar"/>
+        <div className="gmr__align_items">
+          <img src={accountInfos.imageUrl} alt="User's avatar" className="gmr__avatar"/>
         </div>
         <div>
-          <p>Lucas Pinto</p>
+          <p>{accountInfos.name}</p>
         </div>
         <div>
           <i class="fa fa-chevron-down"></i>

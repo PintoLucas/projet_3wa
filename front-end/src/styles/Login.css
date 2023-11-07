@@ -1,0 +1,32 @@
+.gmr__form_field {
+    width: 700px;
+    background-color: #282828;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.gmr__form_field input, .gmr__form_field textarea{
+    background-color: #1A1A1A;
+    min-width: 400px;
+    max-width: 600px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    resize: none;
+    padding: 15px;
+    margin: 15px 0;
+    color: white;
+}
+
+.gmr__form_field .gmr__validate_button {
+    padding: 10px 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: #1A1A1A;
+    color: white;
+}
+
+.gmr__form_field .gmr__validate_button:hover {
+    color: #FCFD05;
+    cursor: pointer;
+}
