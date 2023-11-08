@@ -28,7 +28,7 @@ function AccountMenu({items}) {
     <div className="gmr__dropdown" onClick={toggleMenu} ref={dropdownRef}>
       <div className="gmr__header_account">
         <div className="gmr__align_items">
-          <img src={accountInfos.imageUrl} alt="User's avatar" className="gmr__avatar"/>
+          <img src={accountInfos.avatarUrl} alt="User's avatar" className="gmr__avatar"/>
         </div>
         <div>
           <p>{accountInfos.name}</p>

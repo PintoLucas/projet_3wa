@@ -7,7 +7,9 @@ function Register() {
     let [name, setName] = useState("");
     let [pseudo, setPseudo] = useState("");
     let [biography, setBiography] = useState("");
-    let [imageUrl, setImageUrl] = useState("");
+    let [avatarUrl, setAvatarUrl] = useState("");
+    let [bannerUrl, setBannerUrl] = useState("");
+
     let [email, setEmail] = useState("");
     let [password, setPassword] = useState("");
 
@@ -25,7 +27,8 @@ function Register() {
                     name: name,
                     pseudo: pseudo,
                     biography: biography,
-                    imageUrl: imageUrl,
+                    avatarUrl: avatarUrl,
+                    bannerUrl: bannerUrl,
                     email: email,
                     password: password,
                     isAdmin: false
@@ -51,8 +54,10 @@ function Register() {
                     onChange={(e) => setPseudo(e.target.value)} required/>
             <textarea value={biography} type="text" placeholder="Short bio"
                     onChange={(e) => setBiography(e.target.value)} required/>
-            <input value={imageUrl} type="text" placeholder="Profile picture"
-                    onChange={(e) => setImageUrl(e.target.value)} required/>
+            <input value={avatarUrl} type="text" placeholder="Profile picture"
+                    onChange={(e) => setAvatarUrl(e.target.value)} required/>
+            <input value={bannerUrl} type="text" placeholder="Profile picture"
+                    onChange={(e) => setBannerUrl(e.target.value)} required/>
             <input value={email} type="text" placeholder="Email"
                     onChange={(e) => setEmail(e.target.value)} required/>
             <input value={password} type="password" placeholder="Password"

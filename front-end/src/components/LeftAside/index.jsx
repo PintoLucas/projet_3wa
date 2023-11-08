@@ -1,19 +1,17 @@
-import banner from "../../assets/banner.jpg"
-
 function LeftAside() {
 
     const accountInfos = JSON.parse(localStorage.getItem('accountInfos'));
 
     return (
         <aside className="gmr__left_aside">
-            <img src={banner} alt="Bannière de profil" className="gmr__banner" />
+            <img src={accountInfos.bannerUrl} alt="Bannière de profil" className="gmr__banner" />
             <div className="gmr__inline gmr__follow_count">
                 {/* <div className="gmr__center">
                     <p className="gmr__bold gmr__aside_account_details">1900</p>
                     <p className="gmr__secondary_text">Followers</p>
                 </div> */}
                 <div>
-                    <img src={accountInfos.imageUrl} alt="User's avatar" className="gmr__avatar_aside" />
+                    <img src={accountInfos.avatarUrl} alt="User's avatar" className="gmr__avatar_aside" />
                 </div>
                 {/* <div className="gmr__center">
                     <p className="gmr__bold gmr__aside_account_details">1400</p>

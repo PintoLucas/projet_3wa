@@ -9,7 +9,8 @@ exports.signup = (req, res, next) => {
                 name: req.body.name,
                 pseudo: req.body.pseudo,
                 biography: req.body.biography,
-                imageUrl: req.body.imageUrl,
+                avatarUrl: req.body.avatarUrl,
+                bannerUrl: req.body.bannerUrl,
                 email: req.body.email,
                 password: hash,
                 isAdmin: false
@@ -43,7 +44,8 @@ exports.login = (req, res, next) => {
                         name: user.name,
                         pseudo: user.pseudo,
                         biography: user.biography,
-                        imageUrl: user.imageUrl,
+                        avatarUrl: user.avatarUrl,
+                        bannerUrl: user.bannerUrl,
                         email: user.email,
                         isAdmin: user.isAdmin,
                         token: jwt.sign(
