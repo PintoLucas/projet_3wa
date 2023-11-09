@@ -56,7 +56,7 @@ function Register() {
                     onChange={(e) => setBiography(e.target.value)} required/>
             <input value={avatarUrl} type="text" placeholder="Profile picture"
                     onChange={(e) => setAvatarUrl(e.target.value)} required/>
-            <input value={bannerUrl} type="text" placeholder="Profile picture"
+            <input value={bannerUrl} type="text" placeholder="Banner profile picture"
                     onChange={(e) => setBannerUrl(e.target.value)} required/>
             <input value={email} type="text" placeholder="Email"
                     onChange={(e) => setEmail(e.target.value)} required/>

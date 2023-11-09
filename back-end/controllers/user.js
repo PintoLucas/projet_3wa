@@ -62,3 +62,23 @@ exports.login = (req, res, next) => {
         })
         .catch(error => res.status(500).json({error}));
 };
+
+exports.getInfos = (req, res, next) => {
+    User.findOne({_id: req.body.authorId})
+        .then(user => {
+            if (!user) {
+                return res.status(401).json({error: 'Utilisateur non trouvé !'});
+            }
+            res.status(200).json({
+                userId: user._id,
+                name: user.name,
+                pseudo: user.pseudo,
+                biography: user.biography,
+                avatarUrl: user.avatarUrl,
+                bannerUrl: user.bannerUrl,
+                email: user.email,
+                isAdmin: user.isAdmin,
+            });
+        })
+        .catch(error => res.status(500).json({error}));
+}

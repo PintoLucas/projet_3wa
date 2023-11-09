@@ -1,9 +1,9 @@
-import Post from "../Post";
+import ListPosts from "../ListPosts";
 
 function Feed() {
     return (
         <div className="gmr__feed">
-            <Post />
+            <ListPosts />
         </div>
     );
   }

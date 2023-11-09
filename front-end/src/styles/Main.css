@@ -17,6 +17,10 @@
     border-radius: 10px;
 }
 
+.gmr__left_aside > div:nth-child(4) {
+    padding: 0 15px;
+}
+
 .gmr__banner {
     width: 100%;
     max-height: 150px;
@@ -70,9 +74,18 @@
 }
 
 .gmr__create_post_buttons {
-    margin: 15px 0 0 55px;
+    margin: 15px 0 0 65px;
     display: flex;
     justify-content: space-between;
+}
+
+.gmr__post_input_add_image {
+    background-color: #1A1A1A;
+    width: 300px;
+    border: 0;
+    border-radius: 10px;
+    padding: 15px;
+    color: white;
 }
 
 .gmr__add_media {
@@ -133,8 +146,15 @@
     margin-top: 15px;
 }
 
-.gmr__post_answer .fa-heart {
+.gmr__post_answer .gmr__column {
     margin-left: 15px;
+}
+
+.gmr__post_answer .gmr__column p {
+    margin: 10px 0 0;
+}
+
+.gmr__post_answer .fa-heart {
     font-size: 20px;
 }
 

@@ -29,8 +29,8 @@ exports.createPost = (req, res, next) => {
 
 exports.getAllPosts = (req, res, next) => {
     Post.find().then(
-        (sauces) => {
-            res.status(200).json(sauces);
+        (posts) => {
+            res.status(200).json(posts);
         }
     ).catch(
         (error) => {

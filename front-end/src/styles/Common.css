@@ -32,6 +32,11 @@ p, h1, h2, h3, .fa {
     flex-direction: column;
 }
 
+.gmr__reverse_column {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
 .gmr__center {
     display: flex;
     flex-direction: column;
