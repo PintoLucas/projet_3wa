@@ -10,7 +10,8 @@ exports.createPost = (req, res, next) => {
         imageUrl: req.body.imageUrl,
         userId: req.body.userId,
         likes: 0,
-        usersLiked: []
+        usersLiked: [],
+        listOfComments: []
     });
     post.save().then(
         () => {
@@ -111,6 +112,26 @@ exports.likePost = (req, res, next) => {
                 res.status(201).json({
                     likes: post.likes,
                     message: "Post Like Updated!"
+                })
+            }
+        ).catch(
+            (error) => {
+                res.status(400).json({
+                    error: error
+                });
+            }
+        );
+    });
+}
+
+exports.commentPost = (req, res, next) => {
+    Post.findOne({_id: req.params.id}).then((post) => {
+        post.listOfComments.push([req.body.userName, req.body.userAvatar, req.body.comments])
+        post.save().then(
+            () => {
+                res.status(201).json({
+                    comments: post.comments,
+                    message: "Post comments Updated!"
                 })
             }
         ).catch(

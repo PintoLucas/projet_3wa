@@ -37,7 +37,8 @@ function ListPosts() {
                         usersLiked={post.usersLiked}
                         numberOfPostLikes={post.likes}
                         description={post.description}
-                        authorId={post.userId}/>
+                        authorId={post.userId}
+                        listOfComments={post.listOfComments} />
                 ))}
             </div>
         </div>

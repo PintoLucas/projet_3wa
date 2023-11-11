@@ -11,7 +11,7 @@ router.get('/:id', auth, postCtrl.getOnePost);
 router.put('/:id', auth, postCtrl.modifyPost);
 router.delete('/:id', auth, postCtrl.deletePost);
 router.post('/:id/like', auth, postCtrl.likePost);
-
+router.post('/:id/comment', auth, postCtrl.commentPost);
 
 router.get('/test', postCtrl.test)
 

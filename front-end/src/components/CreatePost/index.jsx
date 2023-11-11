@@ -40,7 +40,7 @@ function CreatePost() {
         <form className="gmr__create_post" onSubmit={createpost}>
             <div className="gmr__inline gmr__align_items">
                 <img src={accountInfos.avatarUrl} alt="User's avatar" className="gmr__avatar_feed" />
-                <textarea className="gmr__post_textarea" placeholder="Tell us what you think about your most liked game" type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
+                <textarea className="gmr__createpost_textarea" placeholder="Tell us what you think about your most liked game" type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
             </div>
             <div className="gmr__inline gmr__create_post_buttons">
                 {/* <div className="gmr__add_media gmr__inline">
