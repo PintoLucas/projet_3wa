@@ -39,7 +39,7 @@ function Login() {
                     onChange={(e) => setEmail(e.target.value)} required/>
             <input value={password} type="password" placeholder="Password"
                     onChange={(e) => setPassword(e.target.value)} required/>
-            <button className="gmr__validate_button" type="submit">Connexion</button>
+            <button className="gmr__validate_button" type="submit">Login</button>
         </form>
     )
 }

@@ -1,9 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 
-function AccountMenu({items}) {
+function AccountMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
   const accountInfos = JSON.parse(localStorage.getItem('accountInfos'));
+  const navigate = useNavigate();
 
   const handleClickOutside = (event) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -24,6 +26,11 @@ function AccountMenu({items}) {
     setIsOpen(!isOpen);
   };
 
+  function signOut() {
+    localStorage.clear();
+    navigate('/');
+}
+
   return (
     <div className="gmr__dropdown" onClick={toggleMenu} ref={dropdownRef}>
       <div className="gmr__header_account">
@@ -41,11 +48,9 @@ function AccountMenu({items}) {
         <div>
           <menu className="gmr__menu">
             <ul>
-              <a href="/">Mon Compte</a>
+              <a href="/account">Mon Compte</a>
             </ul>
-            <ul>
-              <a href="/">Se déconnecter</a>
-            </ul>
+            <ul onClick={signOut}>Se déconnecter</ul>
           </menu>
         </div>
       )}

@@ -62,7 +62,7 @@ function Register() {
                     onChange={(e) => setEmail(e.target.value)} required/>
             <input value={password} type="password" placeholder="Password"
                     onChange={(e) => setPassword(e.target.value)} required/>
-            <button className="gmr__validate_button" type="submit">Créer mon compte</button>
+            <button className="gmr__validate_button" type="submit">Register</button>
         </form>
     )
 }
