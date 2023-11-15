@@ -45,14 +45,14 @@ function AccountMenu() {
         </div>
       </div>
       {isOpen && (
-        <div>
-          <menu className="gmr__menu">
-            <ul>
-              <a href="/account">Mon Compte</a>
-            </ul>
-            <ul onClick={signOut}>Se déconnecter</ul>
-          </menu>
-        </div>
+        <menu className="gmr__menu">
+          <ul>
+            <li>
+              <a href="/account" className="gmr__menu_link">Mon Compte</a>
+            </li>
+            <li onClick={signOut} className="gmr__menu_link">Se déconnecter</li>
+          </ul>
+        </menu>
       )}
     </div>
   );

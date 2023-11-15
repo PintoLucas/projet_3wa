@@ -10,9 +10,9 @@ function Main() {
         <>
             <Header />
             <div className="gmr__main">
-                <aside>
+                <div>
                     <LeftAside />
-                </aside>
+                </div>
                 <div>
                     <CreatePost />
                     <Feed />

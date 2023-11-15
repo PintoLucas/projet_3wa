@@ -8,7 +8,17 @@
     z-index: 1000;
     padding: 0 30px;
     padding: 20px 30px 20px;
-    top: 0;
+    top: -100%;
+    animation: topSlideIn 1s forwards;
+}
+
+@keyframes topSlideIn {
+    from {
+        top: -100% ;
+    }
+    to {
+        top: 0px;
+    }
 }
 
 .gmr__header > div {
@@ -87,14 +97,20 @@
     display: block;
 }
 
+.gmr__menu li {
+    padding: 10px 0;
+}
+
 .gmr__menu ul {
-    padding: 5px 20px;
+    padding: 0 30px;
 }
 
-.gmr__menu a {
+.gmr__menu .gmr__menu_link {
     color: white;
+    text-decoration: underline;
 }
 
-.gmr__menu a:hover {
+.gmr__menu li:hover, .gmr__menu_link:hover {
     color: #FCFD05;
+    cursor: pointer;
 }

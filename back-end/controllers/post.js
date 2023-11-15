@@ -58,25 +58,35 @@ exports.getOnePost = (req, res, next) => {
     );
 };
 
+// exports.modifyPost = (req, res, next) => {
+//     Post.updateOne({_id: req.params.id}).then(
+//         () => {
+//             res.status(201).json({
+//                 message: 'Post updated successfully!'
+//             });
+//         }
+//     ).catch(
+//         (error) => {
+//             res.status(400).json({
+//                 error: error
+//             });
+//         }
+//     );
+// };
+
 exports.modifyPost = (req, res, next) => {
-    const postObject = req.file ?
-        {
-            ...JSON.parse(req.body.post)
-        } : {...req.body};
-    delete req.body._id;
-    Post.updateOne({_id: req.params.id}, {...postObject, _id: req.params.id}).then(
+    Post.updateOne({_id: req.params.id}, {description: req.body.description, imageUrl: req.body.imageUrl}).then(
         () => {
             res.status(201).json({
                 message: 'Post updated successfully!'
             });
-        }
-    ).catch(
-        (error) => {
-            res.status(400).json({
-                error: error
-            });
-        }
-    );
+        }).catch(
+            (error) => {
+                res.status(400).json({
+                    error: error
+                });
+            }
+        );
 };
 
 exports.deletePost = (req, res, next) => {

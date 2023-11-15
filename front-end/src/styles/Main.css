@@ -15,7 +15,19 @@
     max-width: 300px;
     background-color: #282828;
     border-radius: 10px;
+    left: -100%;
+    animation: leftSlideIn 1s forwards;
 }
+
+@keyframes leftSlideIn {
+    from {
+        left: -100% ;
+    }
+    to {
+        left: 30px;
+    }
+}
+
 
 .gmr__left_aside > div:nth-child(4) {
     padding: 0 15px;
@@ -48,9 +60,21 @@
         /* CREATE POST */
 
 .gmr__create_post {
+    width: 600px;
     background-color: #282828;
     padding: 15px;
     border-radius: 10px;
+    opacity: 0;
+    animation: createPostFadeIn 2s forwards;
+}
+
+@keyframes createPostFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .gmr__avatar_feed {
@@ -127,11 +151,24 @@
 .gmr__post {
     display: flex;
     flex-direction: column;
+    position: fixed;
     margin: 20px 0;
     background-color: #282828;
     padding: 15px;
     border-radius: 10px;
     max-width: 600px;
+    right: -100%;
+    animation: rightSlideIn 0.5s forwards;
+}
+
+@keyframes rightSlideIn {
+    from {
+        right: -100% ;
+    }
+    to {
+        right: 0;
+        position: relative;
+    }
 }
 
 .gmr__post_textarea {
@@ -154,6 +191,40 @@
     font-size: 20px;
 }
 
+.gmr__update_post {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gmr__update_post button {
+    margin: 25px 30px 10px;
+    width: fit-content;
+    padding: 10px 30px;
+    border-radius: 10px;
+    background-color: #1A1A1A;
+    border: none;
+    color: white;
+}
+
+.gmr__update_post button:hover {
+    cursor: pointer;
+    color: #FCFD05;
+}
+
+
+.gmr__update_post .fa-trash {
+    margin: 25px 0 10px;
+    color: #EC4134;
+    font-size: 25px;
+}
+
+.gmr__update_post .fa-trash:hover {
+    color: #FF0000;
+    cursor: pointer;
+}
+
+
 .gmr__post_answer {
     margin-top: 15px;
 }
@@ -167,7 +238,7 @@
 }
 
 .gmr__post_answer .gmr__column p {
-    margin: 10px 0 0;
+    margin: 2px 0 0;
 }
 
 .gmr__post_answer .fa-heart {
@@ -193,7 +264,7 @@
 }
 
 .gmr__show_comments_button {
-    margin: 25px auto 10px;
+    margin: 25px 0 10px;
     width: fit-content;
     padding: 10px 30px;
     border-radius: 10px;
@@ -250,4 +321,93 @@
 .gmr__comment_text {
     display: flex;
     align-items: center;
+}
+
+.gmr__post_popup {
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.gmr__modify_post_popup_content {
+    background: #282828;
+    width: 550px;
+    padding: 30px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.gmr__close_post_popup {
+    position: absolute;
+    color: white;
+    top: 10px;
+    right: 20px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.gmr__close_post_popup:hover {
+    color: #FCFD05;
+}
+
+.gmr__modify_post_popup input, .gmr__modify_post_popup textarea{
+    background-color: #1A1A1A;
+    min-width: 500px;
+    max-width: 500px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    resize: none;
+    padding: 15px;
+    margin: 15px 0;
+    color: white;
+}
+
+.gmr__modify_post_popup button, .gmr__delete_post_popup button {
+    width: fit-content;
+    padding: 10px 30px;
+    margin: 15px 0;
+    border: none;
+    border-radius: 10px;
+    background-color: #1A1A1A;
+    color: white;
+}
+
+.gmr__modify_post_popup button:hover {
+    color: #FCFD05;
+    cursor: pointer;
+}
+
+.gmr__delete_post_popup_content {
+    background: #282828;
+    width: 400px;
+    padding: 30px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.gmr__delete_post_popup button {
+    margin: 10px 10px 0;
+}
+
+.gmr__delete_button {
+    background-color: #EC4134 !important;
+}
+
+.gmr__delete_button:hover {
+    background-color: #FF0000 !important;
+    cursor: pointer;
+}
+
+.gmr__cancel_button:hover {
+    color: #FCFD05;
+    cursor: pointer;
 }

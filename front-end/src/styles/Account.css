@@ -2,8 +2,20 @@
     background-color: #282828;
     padding: 15px;
     border-radius: 10px;
-    max-width: 600px;
-}
+    max-width: 500px;
+    overflow: hidden;
+    animation: openAnimation 1s linear forwards;
+  }
+
+  @keyframes openAnimation {
+    from {
+        width: 0;
+        opacity: 0;
+    } to {
+        width: 500px;
+        opacity: 1;
+    }
+  }
 
 .gmr__modify_informations input, .gmr__modify_informations textarea{
     background-color: #1A1A1A;

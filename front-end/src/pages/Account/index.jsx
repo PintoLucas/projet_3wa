@@ -1,8 +1,11 @@
 import '../../styles/Account.css';
+import Header from "../../components/Header";
 
 function Account() {
     return (
-        <div className="gmr__align_items gmr__column">
+        <>
+        <Header />
+        <div className="gmr__align_items gmr__column gmr__my_account">
             <h1>Modify my informations</h1>
             <form className="gmr__column gmr__align_items gmr__modify_informations">
                 <input type="text" placeholder="Change name" />
@@ -15,6 +18,7 @@ function Account() {
                 <button>Change my informations</button>
             </form>
         </div>
+        </>
     );
 }
 

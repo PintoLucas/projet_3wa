@@ -1,5 +1,4 @@
 import logo from "../../assets/logo.png"
-import avatar from "../../assets/joe.png"
 import "../../styles/Header.css";
 import AccountMenu from "./AccountMenu";
 
@@ -7,7 +6,9 @@ function Header() {
     return (
       <header className="gmr__header">
         <div>
-          <img src={logo} alt="Logo Gam'r" className="gmr__logo"/>
+          <a href="/feed">
+            <img src={logo} alt="Logo Gam'r" className="gmr__logo"/>
+          </a>
         </div>
         <div className="gmr__header_menu">
             <div>
