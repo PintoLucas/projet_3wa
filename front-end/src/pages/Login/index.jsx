@@ -2,7 +2,7 @@ import Login from "../../components/Login";
 import { useState } from "react";
 import '../../styles/Login.css';
 import Register from "../../components/Register";
-
+import Helmet from "react-helmet"
 
 function LoginPage() {
     let [openLogin, setOpenLogin] = useState(true);
@@ -21,6 +21,12 @@ function LoginPage() {
 
     return (
         <div className="gmr__align_items gmr__column gmr__text_align">
+            <Helmet>
+                <title>Gam'r - Login</title>
+                <meta name="description" content="Gam'r, the social network made by and for the gamers ! - Login and register page" />
+                <meta name="keywords" content="gamr, social network, login page, register page" />
+                <meta charset="UTF-8" />
+            </Helmet>
             <div>
                 <h1>Welcome on Gam'r</h1>
                 <h2>The brand new social network for Gamers !</h2>

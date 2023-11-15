@@ -1,6 +1,7 @@
 import '../../styles/Account.css';
 import Header from "../../components/Header";
 import { useState } from 'react';
+import Helmet from "react-helmet"
 
 function Account() {
     let [newName, setNewName] = useState();
@@ -59,6 +60,12 @@ function Account() {
     return (
         <>
         <Header />
+        <Helmet>
+            <title>Gam'r - Account</title>
+            <meta name="description" content="Gam'r, the social network made by and for the gamers ! - Account page" />
+            <meta name="keywords" content="gamr, social network, account page" />
+            <meta charset="UTF-8" />
+        </Helmet>
         <div className="gmr__align_items gmr__column gmr__my_account">
             <h1>Modify my informations</h1>
             <form className="gmr__column gmr__align_items gmr__modify_informations" onSubmit={editAccount}>
