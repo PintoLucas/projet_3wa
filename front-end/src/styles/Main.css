@@ -1,6 +1,6 @@
 .gmr__main {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding-top: 100px;
 }
 
@@ -76,6 +76,14 @@
         opacity: 1;
     }
 }
+.gmr__create_post .gmr__inline:nth-child(1) {
+    align-items: flex-end;
+}
+
+.gmr__create_post .gmr__inline:nth-child(1) .gmr__column {
+    width: calc(100% - 95px);
+}
+
 
 .gmr__avatar_feed {
     height: 50px;
@@ -101,6 +109,7 @@
     margin: 15px 0 0 65px;
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
 }
 
 .gmr__post_input_add_image {
@@ -132,6 +141,7 @@
 }
 
 .gmr__publish {
+    height: 45px;
     padding: 10px 30px;
     border-radius: 10px;
     background-color: #1A1A1A;
@@ -176,7 +186,6 @@
     min-width: 370px;
     width: 100%;
     border: 0;
-    border-right: 5px solid #282828;
     border-radius: 10px 0 0 10px;
     resize: none;
     padding: 15px;
@@ -227,14 +236,16 @@
 
 .gmr__post_answer {
     margin-top: 15px;
+    align-items: flex-end;
 }
 
 .gmr__post_answer form {
     display: flex;
+    align-items: flex-end;
 }
 
-.gmr__post_answer .gmr__column {
-    margin-left: 15px;
+.gmr__post_answer > .gmr__column {
+    margin: 0 0 7px 15px;
 }
 
 .gmr__post_answer .gmr__column p {
@@ -251,6 +262,7 @@
 }
 
 .gmr__comment_button {
+    height: 60px;
     background-color: #1A1A1A;
     border: none;
     border-radius: 0 10px 10px 0;
@@ -410,4 +422,155 @@
 .gmr__cancel_button:hover {
     color: #FCFD05;
     cursor: pointer;
+}
+
+@media (max-width: 1100px) {
+    .gmr__main {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .gmr__left_aside {
+        position: relative;
+        margin-bottom: 30px;
+        animation: none;
+        left: 0;
+    }
+
+    .gmr__create_post {
+        animation: none;
+        opacity: 1;
+    }
+
+    .gmr__post {
+        animation: none;
+        position: relative;
+        right: 0;
+    }
+}
+
+@media (max-width: 700px) {
+    .gmr__main {
+        display: block;
+    }
+
+    .gmr__left_aside {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .gmr__main > div:nth-child(2) {
+        width: calc(100% - 30px);
+    }
+
+    .gmr__create_post {
+        width: 100%;
+    }
+
+    .gmr__avatar_feed {
+        margin: 15px 15px 15px 0;
+    }
+
+    .gmr__create_post .gmr__inline:nth-child(1) {
+        align-items: flex-start;
+    }
+
+    .gmr__create_post .gmr__responsive_column {
+        align-items: center !important;
+    }
+
+    .gmr__create_post .gmr__inline:nth-child(1) .gmr__column {
+        width: calc(100% - 30px);
+        align-items: center;
+    }
+
+    .gmr__createpost_textarea, .gmr__post_input_add_image {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .gmr__post_input_add_image {
+        width: calc(100% - 30px);
+    }
+
+    .gmr__create_post_buttons {
+        align-items: start;
+        margin: 15px 0;
+    }
+
+    .gmr__create_post_buttons > div {
+        width: 100%;
+    }
+
+    .gmr__publish {
+        margin-top: 15px;
+    }
+
+    .gmr__post {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .gmr__list_posts {
+        width: 100%;
+    }
+
+    .gmr__post_answer {
+        align-items: center;
+    }
+
+    .gmr__post_textarea {
+        min-width: 100px;
+        width: calc(100% - 30px);
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
+
+    .gmr__post_answer > .gmr__responsive_inline {
+        margin: 15px 0;
+    }
+
+    .gmr__post > .gmr__responsive_column{
+        align-items: center;
+    }
+
+    .gmr__show_comments_button {
+        margin-top: 15px;
+    }
+
+    .gmr__update_post button {
+        margin: 25px 15px 10px 0;
+    }
+
+    .gmr__update_post .fa-trash {
+        margin-left: 15px;
+    }
+
+    .gmr__post_answer .fa-heart {
+        margin: 0 5px;
+    }
+
+    .gmr__post_answer form {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .gmr__post_answer form > div {
+        width: 100%;
+    }
+
+    .gmr__comment_button {
+        border-radius: 10px;
+    }
+
+    .gmr__avatar_and_comment img {
+        max-height: 40px;
+        width: 40px;
+        margin-right: 15px;
+    }
+
+    .gmr__comment_text {
+        line-break: anywhere;
+    }
 }

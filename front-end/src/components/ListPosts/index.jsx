@@ -28,7 +28,7 @@ function ListPosts() {
     return (
         <div className="gmr__column gmr__align_items">
             <h1>Dernières actualités</h1>
-            <div className="gmr__reverse_column">
+            <div className="gmr__reverse_column gmr__list_posts">
                 {listOfPosts.map((post, index) => (
                     <Post
                         key={post._id}

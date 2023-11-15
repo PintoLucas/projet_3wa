@@ -35,10 +35,16 @@ function Login() {
 
     return (
         <form onSubmit={login} className="gmr__form_field gmr__column gmr__align_items">
-            <input value={email} type="text" placeholder="Email"
+            <div className="gmr__column">
+                <label for="email">Email :</label>
+                <input value={email} type="text" placeholder="Email"
                     onChange={(e) => setEmail(e.target.value)} required/>
-            <input value={password} type="password" placeholder="Password"
+            </div>
+            <div className="gmr__column">
+                <label for="password">Password :</label>
+                <input value={password} type="password" placeholder="Password"
                     onChange={(e) => setPassword(e.target.value)} required/>
+            </div>
             <button className="gmr__validate_button" type="submit">Login</button>
         </form>
     )

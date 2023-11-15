@@ -1,4 +1,3 @@
-import avatar from "../../assets/joe.png"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -38,11 +37,14 @@ function CreatePost() {
     }
     return (
         <form className="gmr__create_post" onSubmit={createpost}>
-            <div className="gmr__inline gmr__align_items">
+            <div className="gmr__inline gmr__align_items gmr__responsive_column">
                 <img src={accountInfos.avatarUrl} alt="User's avatar" className="gmr__avatar_feed" />
-                <textarea className="gmr__createpost_textarea" placeholder="Tell us what you think about your most liked game" type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
+                <div className="gmr__column">
+                    <label for="description">Description :</label>
+                    <textarea className="gmr__createpost_textarea" placeholder="Tell us what you think about your most liked game" type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
+                </div>
             </div>
-            <div className="gmr__inline gmr__create_post_buttons">
+            <div className="gmr__inline gmr__create_post_buttons gmr__responsive_column">
                 {/* <div className="gmr__add_media gmr__inline">
                     <i class="fa fa-image"></i>
                     <p>Image</p>
@@ -51,7 +53,10 @@ function CreatePost() {
                     <i class="fa fa-play-circle"></i>
                     <p>Vidéo</p>
                 </div> */}
-                <input className="gmr__post_input_add_image" placeholder="Link for an image" value={imageUrl} type="text" onChange={(e) => setImageUrl(e.target.value)}/>
+                <div className="gmr__column">
+                    <label for="image">Image :</label>
+                    <input className="gmr__post_input_add_image" placeholder="Link for an image" value={imageUrl} type="text" onChange={(e) => setImageUrl(e.target.value)}/>
+                </div>
                 <button className="gmr__publish" type="submit">Publier</button>
             </div>
         </form>

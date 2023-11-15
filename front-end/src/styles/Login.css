@@ -5,7 +5,7 @@
     border-radius: 10px;
 }
 
-.gmr__form_field input, .gmr__form_field textarea{
+.gmr__form_field input, .gmr__form_field textarea {
     background-color: #1A1A1A;
     min-width: 400px;
     max-width: 600px;
@@ -70,4 +70,17 @@
     max-height: 800px;
     opacity: 1;
     transition-delay: 0.7s, 0.7s;
+}
+
+@media (max-width: 700px) {
+    .gmr__form_field {
+        min-width: 250px;
+        width: fit-content;
+    }
+    
+    .gmr__form_field input, .gmr__form_field textarea {
+        min-width: 0;
+        width: 200px;
+        max-width: 600px;
+    }
 }

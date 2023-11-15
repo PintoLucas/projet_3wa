@@ -112,18 +112,11 @@ function Post({description, imageUrl, numberOfPostLikes, usersLiked, postId, aut
     }
 
     async function editPost() {
-        console.log('A');
         try {
             let headers = new Headers();
             let jwtToken = JSON.parse(window.localStorage.getItem('accountInfos')).token;
             headers.append('Authorization', 'Bearer ' + jwtToken);
             headers.append('Content-type', 'application/json');
-            console.log('B');
-            console.log(JSON.stringify({
-                postId: postId,
-                description: newPostDescription,
-                imageUrl: newPostImageUrl
-            }));
             let res = await fetch("http://localhost:3000/api/posts/" + postId, {
                 method: "PUT",
                 headers: headers,
@@ -133,8 +126,6 @@ function Post({description, imageUrl, numberOfPostLikes, usersLiked, postId, aut
                 }),
             });
             let response = await res.json();
-            console.log('RES');
-            console.log(response);
         } catch (error) {
             console.log(error);
         }
@@ -173,19 +164,22 @@ function Post({description, imageUrl, numberOfPostLikes, usersLiked, postId, aut
             </div>
             <p>{description}</p>
             <img src={imageUrl} alt="Post media" className="gmr__post_media" />
-            <div className="gmr__inline gmr__align_items gmr__post_answer">
+            <div className="gmr__inline gmr__align_items gmr__post_answer gmr__responsive_column">
                 <img src={accountInfos.avatarUrl} alt="User's avatar" className="gmr__avatar_feed" />
                 <form onSubmit={addComment}>
-                    <textarea className="gmr__post_textarea" placeholder="Tell us what you think about this post"
+                    <div className="gmr__column">
+                        <label for="comment">Comment :</label>
+                        <textarea className="gmr__post_textarea" placeholder="Tell us what you think about this post"
                               value={comment} onChange={(e) => setComment(e.target.value)}v/>
+                    </div>
                     <button className="gmr__comment_button">Comment</button>
                 </form>
-                <div className="gmr__column gmr__align_items">
+                <div className="gmr__column gmr__align_items gmr__responsive_inline">
                     <i class="fa fa-heart" onClick={addLike}></i>
                     <p>{numberOfLikes}</p>
                 </div>
             </div>
-            <div className="gmr__inline gmr__justify_content">
+            <div className="gmr__inline gmr__justify_content gmr__responsive_column">
                 <button onClick={openShowComments} className="gmr__show_comments_button">Display comments</button>
                 {displayButtons &&
                 <div className="gmr__inline gmr__update_post">
@@ -213,8 +207,15 @@ function Post({description, imageUrl, numberOfPostLikes, usersLiked, postId, aut
                     </div>
                     <form className="gmr__column gmr__align_items" onSubmit={editPost}>
                         <h2>Update your post</h2>
-                        <textarea type="text" placeholder="Update description" value={newPostDescription} onChange={updateDescription} />
-                        <input type="text" placeholder="Update image URL" value={newPostImageUrl} onChange={updateImageUrl} />
+                        <div className="gmr__column">
+                            <label for="description">Description :</label>
+                            <textarea type="text" placeholder="Update description" value={newPostDescription} onChange={updateDescription} />
+                        </div>
+                        <div className="gmr__column">
+                            <label for="image">Image :</label>
+                            <input type="text" placeholder="Update image URL" value={newPostImageUrl} onChange={updateImageUrl} />
+                        </div>
+                        
                         <button type="submit">Update my post</button>
                     </form>
                 </div>

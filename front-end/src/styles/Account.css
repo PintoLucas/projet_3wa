@@ -1,3 +1,7 @@
+.gmr__my_account {
+    margin-top: 100px;
+}
+
 .gmr__modify_informations {
     background-color: #282828;
     padding: 15px;
@@ -43,4 +47,21 @@
 .gmr__modify_informations button:hover {
     color: #FCFD05;
     cursor: pointer;
+}
+
+@media (max-width: 700px) {
+    .gmr__modify_informations {
+        max-width: calc(100% - 30px);
+        margin-bottom: 30px;
+    }
+
+    .gmr__modify_informations > div {
+        width: 100%;
+    }
+
+
+    .gmr__modify_informations input, .gmr__modify_informations textarea {
+        min-width: calc(100% - 30px);
+        max-width: calc(100% - 30px);
+    }
 }

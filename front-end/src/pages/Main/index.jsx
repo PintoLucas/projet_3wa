@@ -17,9 +17,9 @@ function Main() {
                     <CreatePost />
                     <Feed />
                 </div>
-                <aside>
+                {/* <aside>
                     <RightAside />
-                </aside>
+                </aside> */}
             </div>
         </>
         

@@ -11,7 +11,7 @@ function Header() {
           </a>
         </div>
         <div className="gmr__header_menu">
-            <div>
+            {/* <div>
                 <i className="fa fa-home"></i>
             </div>
             <div>
@@ -19,7 +19,7 @@ function Header() {
             </div>
             <div>
                 <i className="fa fa-bell"></i>
-            </div>
+            </div> */}
         </div>
         <div>
           <AccountMenu />

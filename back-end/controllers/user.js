@@ -27,7 +27,6 @@ exports.signup = (req, res, next) => {
         .catch(error => res.status(500).json({error}));
 };
 
-
 exports.login = (req, res, next) => {
     User.findOne({email: req.body.email})
         .then(user => {
@@ -46,8 +45,6 @@ exports.login = (req, res, next) => {
                         biography: user.biography,
                         avatarUrl: user.avatarUrl,
                         bannerUrl: user.bannerUrl,
-                        email: user.email,
-                        isAdmin: user.isAdmin,
                         token: jwt.sign(
                             {
                                 userId: user._id,
@@ -82,3 +79,20 @@ exports.getInfos = (req, res, next) => {
         })
         .catch(error => res.status(500).json({error}));
 }
+
+exports.modifyAccount = async (req, res, next) => {
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+    User.updateOne({_id: req.params.id},
+        {name: req.body.name, biography: req.body.biography, avatarUrl: req.body.avatarUrl, bannerUrl: req.body.bannerUrl, password: hashedPassword}).then(
+        () => {
+            res.status(201).json({
+                message: 'Account updated successfully!'
+            });
+        }).catch(
+            (error) => {
+                res.status(400).json({
+                    error: error
+                });
+            }
+        );
+};

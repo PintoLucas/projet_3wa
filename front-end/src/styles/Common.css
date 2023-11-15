@@ -1,27 +1,31 @@
 @import "~font-awesome/css/font-awesome.min.css";
+@font-face {
+    font-family: 'chaparral-pro';
+    src: url('../assets/ChaparralPro-Regular.otf') format('opentype');
+}
 
 body {
     background-color: #1A1A1A;
     padding: 30px;
+    font-family: 'chaparral-pro', sans-serif !important;
 }
 
-/* For WebKit browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
-    width: 12px; /* width of the scrollbar */
-  }
+    width: 12px;
+}
   
-  ::-webkit-scrollbar-track {
-    background-color: transparent; /* background of the track */
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background-color: #b5b5b5; /* color of the thumb (the draggable part of the scrollbar) */
-    border-radius: 5px; /* round corners for the thumb */
-  }
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
 
-  ::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb {
+    background-color: #b5b5b5;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
     background-color: #FCFD05;
-  }
+}
 
 
 .black {
@@ -30,6 +34,15 @@ body {
 
 p, h1, h2, h3, .fa {
     color: white;
+}
+
+input, textarea {
+    font-family: 'chaparral-pro', sans-serif !important;
+}
+
+label {
+    color: white;
+    text-align: left;
 }
 
 .gmr__bold {
@@ -78,4 +91,23 @@ p, h1, h2, h3, .fa {
 
 input:focus, textarea:focus {
     outline: none;
+}
+
+@media (max-width: 700px) {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .gmr__responsive_column {
+        flex-direction: column;
+    }
+
+    .gmr__responsive_inline {
+        flex-direction: row;
+    }
+
+    label {
+        text-align: center;
+    }
 }
