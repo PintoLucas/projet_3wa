@@ -11,9 +11,10 @@ root.render(
   <React.StrictMode>
       <BrowserRouter>
         <Routes>
-            <Route path="/" element={<LoginPage />}></Route>
-            <Route path="/feed" element={<Main />}></Route>
-            <Route path="/account" element={<Account />}></Route>
+            <Route exact path="/" element={<LoginPage />}></Route>
+            <Route exact path="/feed" element={<Main />}></Route>
+            <Route exact path="/account" element={<Account />}></Route>
+            <Route path="*" element={<LoginPage />} />
         </Routes>
       </BrowserRouter>
   </React.StrictMode>

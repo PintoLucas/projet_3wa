@@ -151,7 +151,7 @@
 
 .gmr__publish:hover, .gmr__add_media:hover p {
     cursor: pointer;
-    color: #FCFD05 !important;
+    color: #FCFD05;
 }
 
 
@@ -184,6 +184,7 @@
 .gmr__post_textarea {
     background-color: #1A1A1A;
     min-width: 370px;
+    height: 30px;
     width: 100%;
     border: 0;
     border-radius: 10px 0 0 10px;
@@ -253,6 +254,7 @@
 }
 
 .gmr__post_answer .fa-heart {
+    color: white;
     font-size: 20px;
 }
 
@@ -389,13 +391,16 @@
     margin: 15px 0;
     border: none;
     border-radius: 10px;
-    background-color: #1A1A1A;
     color: white;
 }
 
 .gmr__modify_post_popup button:hover {
     color: #FCFD05;
     cursor: pointer;
+}
+
+.gmr__cancel_button {
+    background-color: #1A1A1A;
 }
 
 .gmr__delete_post_popup_content {
@@ -411,11 +416,11 @@
 }
 
 .gmr__delete_button {
-    background-color: #EC4134 !important;
+    background-color: #EC4134;
 }
 
 .gmr__delete_button:hover {
-    background-color: #FF0000 !important;
+    background-color: #FF0000;
     cursor: pointer;
 }
 
@@ -472,11 +477,11 @@
     }
 
     .gmr__create_post .gmr__inline:nth-child(1) {
-        align-items: flex-start;
+        align-items: center;
     }
 
     .gmr__create_post .gmr__responsive_column {
-        align-items: center !important;
+        align-items: center;
     }
 
     .gmr__create_post .gmr__inline:nth-child(1) .gmr__column {
@@ -572,5 +577,14 @@
 
     .gmr__comment_text {
         line-break: anywhere;
+    }
+
+    .gmr__modify_post_popup_content, .gmr__delete_post_popup_content {
+        width: calc(100% - 60px);
+    }
+
+    .gmr__modify_post_popup input, .gmr__modify_post_popup textarea {
+        min-width: 250px;
+        max-width: 250px;
     }
 }

@@ -8,6 +8,7 @@ function Login() {
     let [password, setPassword] = useState("");
     let navigate = useNavigate();
 
+    // Call the back-end to login the user
     async function login(event) {
         event.preventDefault();
 

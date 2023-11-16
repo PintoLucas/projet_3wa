@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 function Post({description, imageUrl, numberOfPostLikes, usersLiked, postId, authorId, listOfComments}) {
     let [numberOfLikes, setLikes] = useState(numberOfPostLikes);
@@ -14,10 +17,13 @@ function Post({description, imageUrl, numberOfPostLikes, usersLiked, postId, aut
     let [isDeletePostPopupOpen, setIsDeletePostPopupOpen] = useState(false);
     let [newPostDescription, setNewPostDescription] = useState(description);
     let [newPostImageUrl, setNewPostImageUrl] = useState(imageUrl);
-    if (authorId === userId) {
+    let [isUserAdmin, setIsUserAdmin] = useState(false);
+
+    if (authorId === userId || isUserAdmin) {
         displayButtons = true;
     }
 
+    // Functions top open or close the popups
     const openModifyPostPopup = () => {
         setIsModifyPostPopupOpen(true);
     };
@@ -34,6 +40,34 @@ function Post({description, imageUrl, numberOfPostLikes, usersLiked, postId, aut
         setIsDeletePostPopupOpen(false);
     };
 
+    // Call the back-end to check if the user is admin
+    useEffect(() => {
+        async function getIsUserAdmin() {
+            try {
+                let userId = JSON.parse(window.localStorage.getItem('accountInfos')).userId;
+                let jwtToken = JSON.parse(window.localStorage.getItem('accountInfos')).token;
+                let headers = new Headers();
+                headers.append('Authorization', 'Bearer ' + jwtToken);
+                headers.append('Content-type', 'application/json');
+                let res = await fetch("http://localhost:3000/api/auth/" + userId, {
+                    method: "GET",
+                    headers: headers,
+                });
+                const response = await res.json();
+                isAdmin(response.isAdmin);
+                
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        getIsUserAdmin();
+      }, [isUserAdmin]);
+
+    async function isAdmin(data) {
+        setIsUserAdmin(data);
+    }
+
+    // Call the back-end the check the author's information
     useEffect(() => {
         async function getInfos() {
             try {
@@ -55,6 +89,7 @@ function Post({description, imageUrl, numberOfPostLikes, usersLiked, postId, aut
         getInfos();
       }, [authorId]);
     
+    // Call the back-end to add a like to the post
     async function addLike() {
         try {
             let headers = new Headers();
@@ -76,8 +111,8 @@ function Post({description, imageUrl, numberOfPostLikes, usersLiked, postId, aut
         }
     };
 
+    // Call the back-end the add a comment to the post
     async function addComment(event) {
-        console.log("Inside");
         try {
             let headers = new Headers();
             let jwtToken = JSON.parse(window.localStorage.getItem('accountInfos')).token;
@@ -93,7 +128,6 @@ function Post({description, imageUrl, numberOfPostLikes, usersLiked, postId, aut
                 }),
             });
             const response = await res.json()
-            setLikes(response.likes);
         } catch (error) {
             console.log(error);
         }
@@ -111,6 +145,7 @@ function Post({description, imageUrl, numberOfPostLikes, usersLiked, postId, aut
         setNewPostImageUrl(event.target.value);
     }
 
+    // Call the back-end to edit the current post. You must be admin or the author to do it
     async function editPost() {
         try {
             let headers = new Headers();
@@ -132,6 +167,7 @@ function Post({description, imageUrl, numberOfPostLikes, usersLiked, postId, aut
         setIsModifyPostPopupOpen(false);
     }
 
+    // Call the back-end to delete the current post. You must be admin or the author to do it
     async function deletePost() {
         try {
             let headers = new Headers();
@@ -175,7 +211,7 @@ function Post({description, imageUrl, numberOfPostLikes, usersLiked, postId, aut
                     <button className="gmr__comment_button">Comment</button>
                 </form>
                 <div className="gmr__column gmr__align_items gmr__responsive_inline">
-                    <i class="fa fa-heart" onClick={addLike}></i>
+                    <FontAwesomeIcon icon={faHeart} className="fa-heart" onClick={addLike}/>
                     <p>{numberOfLikes}</p>
                 </div>
             </div>
@@ -184,12 +220,12 @@ function Post({description, imageUrl, numberOfPostLikes, usersLiked, postId, aut
                 {displayButtons &&
                 <div className="gmr__inline gmr__update_post">
                     <button onClick={openModifyPostPopup}>Modify post</button>
-                    <i className="fa fa-trash" onClick={openDeletePostPopup}></i>
+                    <FontAwesomeIcon icon={faTrash} className="fa-trash" onClick={openDeletePostPopup}/>
             </div>
             }
             </div>
-            <div className={`gmr__list_comments ${isCommentsOpen ? "gmr__show_comments" : ""}`} id={"gmr__comments_" + postId}>{listOfComments.map((comment, index) => (
-                <div className="gmr__comment gmr__column">
+            <div className={`gmr__list_comments ${isCommentsOpen ? "gmr__show_comments" : ""}`} id={"gmr__comments_" + postId}>{listOfComments.map((comment, key) => (
+                <div className="gmr__comment gmr__column" key={comment.id}>
                     <hr />
                     <p className="gmr__comment_author">{comment[0]}</p>
                     <div className="gmr__avatar_and_comment gmr__inline">
@@ -199,6 +235,9 @@ function Post({description, imageUrl, numberOfPostLikes, usersLiked, postId, aut
                 </div>))}
             </div>
         </article>
+
+        {/* Modify post popup */}
+
         {isModifyPostPopupOpen && (
             <div className="gmr__post_popup gmr__modify_post_popup">
                 <div className="gmr__modify_post_popup_content">
@@ -215,12 +254,14 @@ function Post({description, imageUrl, numberOfPostLikes, usersLiked, postId, aut
                             <label for="image">Image :</label>
                             <input type="text" placeholder="Update image URL" value={newPostImageUrl} onChange={updateImageUrl} />
                         </div>
-                        
                         <button type="submit">Update my post</button>
                     </form>
                 </div>
             </div>
         )}
+
+        {/* Delete post popup */}
+
         {isDeletePostPopupOpen && (
             <div className="gmr__post_popup gmr__delete_post_popup">
                 <div className="gmr__delete_post_popup_content gmr__column gmr__align_items">

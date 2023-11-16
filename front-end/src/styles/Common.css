@@ -7,7 +7,7 @@
 body {
     background-color: #1A1A1A;
     padding: 30px;
-    font-family: 'chaparral-pro', sans-serif !important;
+    font-family: 'chaparral-pro', sans-serif;
 }
 
 ::-webkit-scrollbar {
@@ -37,7 +37,7 @@ p, h1, h2, h3, .fa {
 }
 
 input, textarea {
-    font-family: 'chaparral-pro', sans-serif !important;
+    font-family: 'chaparral-pro', sans-serif;
 }
 
 label {

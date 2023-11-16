@@ -8,6 +8,7 @@ const path = require("path");
 const app = express();
 const dotenv = require('dotenv').config();
 
+// Setup MongoDB connection
 mongoose.connect(process.env.MONGO_URI,
     {
         useNewUrlParser: true,

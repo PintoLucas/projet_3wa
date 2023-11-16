@@ -9,6 +9,9 @@ import Helmet from "react-helmet"
 function Main() {
     return (
         <>
+        
+        {/* Helmet is used for the metadata */}
+
         <Helmet>
             <title>Gam'r - Feed</title>
             <meta name="description" content="Gam'r, the social network made by and for the gamers ! - Feed page" />

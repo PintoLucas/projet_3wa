@@ -1,9 +1,7 @@
 const Post = require('../models/post');
 const fs = require("fs");
-exports.test = (req, res, next) => {
-    res.status(200).json({message: 'Post OK'});
-}
 
+// Add new Post
 exports.createPost = (req, res, next) => {
     const post = new Post({
         description: req.body.description,
@@ -28,6 +26,7 @@ exports.createPost = (req, res, next) => {
     );
 };
 
+// Fetch all the posts
 exports.getAllPosts = (req, res, next) => {
     Post.find().then(
         (posts) => {
@@ -42,6 +41,7 @@ exports.getAllPosts = (req, res, next) => {
     );
 };
 
+// Fetch one post
 exports.getOnePost = (req, res, next) => {
     Post.findOne({
         _id: req.params.id
@@ -58,6 +58,7 @@ exports.getOnePost = (req, res, next) => {
     );
 };
 
+// Modify one post
 exports.modifyPost = (req, res, next) => {
     Post.updateOne({_id: req.params.id}, {description: req.body.description, imageUrl: req.body.imageUrl}).then(
         () => {
@@ -73,6 +74,7 @@ exports.modifyPost = (req, res, next) => {
         );
 };
 
+// Delete one post
 exports.deletePost = (req, res, next) => {
     Post.findOne({_id: req.params.id})
         .then(Post.deleteOne({_id: req.params.id})
@@ -92,6 +94,7 @@ exports.deletePost = (req, res, next) => {
             ))
 }
 
+// Like one post
 exports.likePost = (req, res, next) => {
     Post.findOne({_id: req.params.id}).then((post) => {
         if (post.usersLiked.includes(req.body.userId)) {
@@ -118,6 +121,7 @@ exports.likePost = (req, res, next) => {
     });
 }
 
+// Comment one post
 exports.commentPost = (req, res, next) => {
     Post.findOne({_id: req.params.id}).then((post) => {
         post.listOfComments.push([req.body.userName, req.body.userAvatar, req.body.comments])

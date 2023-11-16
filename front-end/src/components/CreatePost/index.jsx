@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
 function CreatePost() {
     const accountInfos = JSON.parse(localStorage.getItem('accountInfos'));
     let [description, setDescription] = useState("");
     let [imageUrl, setImageUrl] = useState("");
     let navigate = useNavigate();
 
-
+    // Call the back-end to create a new post with the data typed
     async function createpost(event) {
         event.preventDefault();
         const newPost = {description, imageUrl};
@@ -29,8 +28,7 @@ function CreatePost() {
                 }),
             });
             let response = await res.json();
-            alert('Post créé');
-            navigate('/feed');
+            window.location.reload();
         } catch(error) {
             console.log(error);
         }

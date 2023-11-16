@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 
+// Add JWT for security
 module.exports = (req, res, next) => {
     try {
         // .split(' ')[1] retourne la deuxième partie de l'authorisation et pas le bearer "bearer xxxxxxx"

@@ -21,6 +21,9 @@ function LoginPage() {
 
     return (
         <div className="gmr__align_items gmr__column gmr__text_align">
+
+            {/* Helmet is used for the metadata */}
+            
             <Helmet>
                 <title>Gam'r - Login</title>
                 <meta name="description" content="Gam'r, the social network made by and for the gamers ! - Login and register page" />

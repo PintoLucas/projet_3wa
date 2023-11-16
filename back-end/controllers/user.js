@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 
+// Create new user
 exports.signup = (req, res, next) => {
     bcrypt.hash(req.body.password, 10)
         .then(hash => {
@@ -27,6 +28,7 @@ exports.signup = (req, res, next) => {
         .catch(error => res.status(500).json({error}));
 };
 
+// Login your user
 exports.login = (req, res, next) => {
     User.findOne({email: req.body.email})
         .then(user => {
@@ -51,7 +53,7 @@ exports.login = (req, res, next) => {
                                 isAdmin: user.isAdmin
                             },
                             'RANDOM_TOKEN_SECRET',
-                            {expiresIn: '24h'}
+                            {expiresIn: '1h'}
                         )
                     });
                 })
@@ -60,6 +62,7 @@ exports.login = (req, res, next) => {
         .catch(error => res.status(500).json({error}));
 };
 
+// Get post author infos
 exports.getInfos = (req, res, next) => {
     User.findOne({_id: req.body.authorId})
         .then(user => {
@@ -80,6 +83,7 @@ exports.getInfos = (req, res, next) => {
         .catch(error => res.status(500).json({error}));
 }
 
+// Modify account informations
 exports.modifyAccount = async (req, res, next) => {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     User.updateOne({_id: req.params.id},
@@ -96,3 +100,17 @@ exports.modifyAccount = async (req, res, next) => {
             }
         );
 };
+
+// Check if the user is admin or not
+exports.getIsAdmin = (req, res, next) => {
+    User.findOne({_id: req.params.id})
+        .then(user => {
+            if (!user) {
+                return res.status(401).json({error: 'Utilisateur non trouvé !'});
+            }
+            res.status(200).json({
+                isAdmin: user.isAdmin,
+            });
+        })
+        .catch(error => res.status(500).json({error}));
+}

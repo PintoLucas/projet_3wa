@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
 
+// MongoDB schema for the user created
 const userSchema = mongoose.Schema({
     name: { type: String, required: true },
     pseudo: { type: String, required: true, unique: true },

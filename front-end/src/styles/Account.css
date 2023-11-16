@@ -21,7 +21,7 @@
     }
   }
 
-.gmr__modify_informations input, .gmr__modify_informations textarea{
+.gmr__modify_informations input[type="text"], .gmr__modify_informations input[type="password"], .gmr__modify_informations textarea[type="text"] {
     background-color: #1A1A1A;
     min-width: 400px;
     max-width: 400px;
@@ -49,6 +49,17 @@
     cursor: pointer;
 }
 
+.gmr__account_updated {
+    background-color: #282828;
+    padding: 0 30px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.gmr__account_updated p {
+    color: #FCFD05;
+}
+
 @media (max-width: 700px) {
     .gmr__modify_informations {
         max-width: calc(100% - 30px);
@@ -60,7 +71,7 @@
     }
 
 
-    .gmr__modify_informations input, .gmr__modify_informations textarea {
+    .gmr__modify_informations input[type="text"], .gmr__modify_informations input[type="password"], .gmr__modify_informations textarea[type="text"] {
         min-width: calc(100% - 30px);
         max-width: calc(100% - 30px);
     }

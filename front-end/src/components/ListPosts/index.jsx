@@ -4,6 +4,7 @@ import Post from "../Post";
 function ListPosts() {
     const [listOfPosts, setListPost] = useState([])
 
+    // Get all the posts
     useEffect(() => {
         async function fetchPosts() {
             try {
@@ -15,8 +16,7 @@ function ListPosts() {
                     headers: headers,
                 })
                 const listPosts = await response.json()
-                // console.log(listPosts);
-                setListPost(listPosts)
+                setListPost(listPosts);
             } catch (err) {
                 console.log(err)
             }
@@ -29,7 +29,7 @@ function ListPosts() {
         <div className="gmr__column gmr__align_items">
             <h1>Dernières actualités</h1>
             <div className="gmr__reverse_column gmr__list_posts">
-                {listOfPosts.map((post, index) => (
+                {listOfPosts.map((post, key) => (
                     <Post
                         key={post._id}
                         postId={post._id}

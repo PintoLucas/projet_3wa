@@ -1,3 +1,14 @@
+.gmr__account_created {
+    background-color: #282828;
+    padding: 5px 30px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.gmr__account_created p {
+    color: #FCFD05;
+}
+
 .gmr__form_field {
     width: 700px;
     background-color: #282828;

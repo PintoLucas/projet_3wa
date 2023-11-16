@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 function AccountMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -7,6 +9,7 @@ function AccountMenu() {
   const accountInfos = JSON.parse(localStorage.getItem('accountInfos'));
   const navigate = useNavigate();
 
+  // Close the menu if we click outside of it
   const handleClickOutside = (event) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
       setIsOpen(false);
@@ -29,7 +32,7 @@ function AccountMenu() {
   function signOut() {
     localStorage.clear();
     navigate('/');
-}
+  };
 
   return (
     <div className="gmr__dropdown" onClick={toggleMenu} ref={dropdownRef}>
@@ -41,7 +44,7 @@ function AccountMenu() {
           <p>{accountInfos.name}</p>
         </div>
         <div>
-          <i class="fa fa-chevron-down"></i>
+          <FontAwesomeIcon icon={faChevronDown} className="fa-chevron-down" />
         </div>
       </div>
       {isOpen && (
