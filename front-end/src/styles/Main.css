@@ -359,6 +359,10 @@
     position: relative;
 }
 
+.gmr__modify_post_popup_content button {
+    background-color: #1A1A1A;
+}
+
 .gmr__close_post_popup {
     position: absolute;
     color: white;
